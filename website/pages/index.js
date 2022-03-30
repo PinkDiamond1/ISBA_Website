@@ -1,8 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+
+  const countdownDate = new Date('August 26, 2022 00:00:00');
+  // const [countdownDate, setCountdown] = useEffect(eventDate);
+  const today = new Date();
+
+  const zeroPad = (num, places) => String(num).padStart(places, '0')
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,42 +21,43 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          1st Internation Symposium on Blockchain Advancements (ISBA 2022)
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          Lorem Ipsum Dolor Sit Amet{' '}
         </p>
 
+        <div className={styles.countdown}>
+          <div className={[styles.countdownElement]}>
+            <p>{(zeroPad(Math.abs(countdownDate.getMonth()-today.getMonth()),2)).toString()}</p>
+            <p> Months</p>
+          </div>
+          <p className = "text-white font-bold p-2 m-1">:</p>
+          <div className={[styles.countdownElement]}>
+            <p>{(zeroPad(Math.abs(countdownDate.getDate()-today.getDate()),2)).toString()}</p>
+            <p> Days</p>
+          </div>
+          <p className = "text-white font-bold p-2 m-1">:</p>
+          <div className={[styles.countdownElement]}>
+            <p>{(zeroPad(Math.abs(countdownDate.getHours()-today.getHours()),2)%24).toString()}</p>
+            <p> Hours</p>
+          </div>
+          <p className = "text-white font-bold p-2 m-1">:</p>
+          <div className={[styles.countdownElement]}>
+            <p>{(zeroPad(Math.abs(countdownDate.getMinutes()-today.getMinutes()%60),2)).toString()}</p>
+            <p> Minutes</p>
+          </div>
+          <div className={[styles.countdownElement]}>
+            <p>{(zeroPad(Math.abs(countdownDate.getSeconds()-today.getSeconds()),2)).toString()}</p>
+            <p> Seconds</p>
+          </div>
+        </div>
+
+        <button className={styles.button}>Register for the event</button>
+
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
         </div>
       </main>
 

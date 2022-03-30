@@ -1,5 +1,7 @@
 .container {
-  padding: 0 2rem;
+  background-image: url('../images/bg_home.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .main {
@@ -8,7 +10,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 
@@ -42,12 +44,54 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 2rem;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight:bold;
 }
 
-.title,
 .description {
   text-align: center;
+  color: #C1F3FF;
+}
+
+.countdown{
+  width: 80vw;
+  display:flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.countdown .countdownElement{
+  padding: 0.5rem;
+  margin: 0.25rem;
+  display:flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  font-weight: bold;
+}
+
+.button{
+  margin-top: 2rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 15vw;
+  border: 1px solid white;
+  padding: 1rem;
+  border-radius: 80px;
+  color:white;
+  transition: background-color 400ms ease-in-out;
+}
+
+.button:hover{
+  margin-top: 2rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 15vw;
+  border: 1px solid white;
+  padding: 1rem;
+  border-radius: 80px;
+  color:white;
 }
 
 .description {
